@@ -1,0 +1,15 @@
+<select [(ngModel)]="comboValue">
+    <option value="">Select Option</option>
+    <option value="Text Box">Text Box</option>
+    <option value="Text Area">Text Area</option>
+</select>
+
+<ng-container *ngIf="comboValue === 'Text Box';else second">
+    <input type="text">
+</ng-container>
+<ng-template #second>
+    <ng-container *ngIf="comboValue === 'Text Area';else third">
+        <textarea></textarea>
+    </ng-container>
+</ng-template>
+<ng-template #third></ng-template>
